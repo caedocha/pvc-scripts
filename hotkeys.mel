@@ -1,0 +1,21 @@
+//***TO DO: find a way for having strings within strings.  ***
+global proc show_outliner(){
+	tearOffPanel "Outliner" "outlinerPanel" false;
+}
+global proc show_hypergraph(){
+	HypergraphHierarchyWindow;	
+}
+global proc show_hypershade(){
+	tearOffPanel "Hypershade" "hyperShadePanel" true;
+}
+/*
+  Creates general purpose hotkeys meant to be set in the userSetup.mel
+*/
+global proc create_hotkeys(){
+	nameCommand -annotation "Outliner" -command "show_outliner();" "outliner";
+	hotkey -k "o" -name "outliner";
+	nameCommand -annotation "Hypergraph" -command "show_hypergraph();" "hypergraph";
+	hotkey -k "h" -name "hypergraph";
+	nameCommand -annotation "HyperShade" -command "show_hypershade();" "hypershade";
+	hotkey -k "h" -alt -ctl -name "hypershade"; 	
+}

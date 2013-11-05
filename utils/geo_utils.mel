@@ -1,0 +1,24 @@
+/*
+  Converts current mesh selection to the specified type (vertices, edges, faces)
+*/
+global proc convertSel(string $toType){
+	string $sel[];
+	if($toType == "faces"){
+		PolySelectConvert 1;
+		$sel = `ls -sl`;
+		SelectFacetMask;
+	}else if($toType == "edges"){
+		PolySelectConvert 2;
+		$sel = `ls -sl`;
+		SelectEdgeMask;
+	}else if($toType == "vertices"){
+		PolySelectConvert 3;
+		$sel = `ls -sl`;
+		SelectVertexMask;
+	}else if($toType == "object"){
+		toggleSelMode;
+		selectMode -object;
+		$sel = `ls -ls`;
+	}	
+	select $sel;
+}

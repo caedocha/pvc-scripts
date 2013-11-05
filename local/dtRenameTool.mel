@@ -1,0 +1,10 @@
+/*
+string $RNM_Win = `window -t "Rename Tool"`;
+columnLayout -adj 1;
+string $sel[] = `ls -sl`;
+for($each in $sel){
+	nameField -o $each;
+}
+button -l "Close" -c "deleteUI -window $RNM_Win";
+showWindow $RNM_Win;
+*/

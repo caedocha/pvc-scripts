@@ -1,0 +1,43 @@
+/*
+  ----------------------------------------------------------
+  NOTICE: 
+  Currently, this file is not being used.
+  Shelves are being loaded with Maya's default functionality.
+  -----------------------------------------------------------
+*/
+
+/*
+  Checks if a shelf is already loaded.
+*/
+proc int shelfExists(string $shelfName){
+	return `layout -q -ex $shelfName`;
+}
+/*
+  Checks if the shelf file already exists in the shelves directory.
+*/
+proc int shelfFileExists(string $shelfFileName){
+	return `file -q -ex $shelfFileName`;
+}
+proc loadShelves(string $shelves[]){
+	string $shelf_path = `internalVar -ush`;
+	for($s in $shelves){
+		string $shelf_file = "shelf_" + $s  + ".mel"; 	
+		if(shelfFileExists($shelf_path + $shelf_file)){
+			if(!shelfExists($s)){
+				loadNewShelf $shelf_file;
+			}
+		}else{
+			print("!!!!!Can't find "+ $s +" shelf!!!!! \n");
+		}
+	}
+}
+/*
+  Loads rigger's shelves.
+*/
+proc loadRiggingShelves(){
+	print "Loading rigging shelves\n";
+	string $rig_shelves[] = {"Rig"};
+	loadShelves($rig_shelves);
+	print "Finished loading rigging  shelves.\n";
+}
+
