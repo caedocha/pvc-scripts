@@ -30,11 +30,11 @@ global proc variable_source (string $script) {
 
 
 println(" -- Importing user start-up related scripts");
-println(" -- Note: Relative script path to ./pvc-scripts!");
+println(" -- Note: Relative script path to ./pvc_scripts!");
 
-source "pvc-scripts/hotkeys.mel";
-source "pvc-scripts/shelves.mel";
-source "pvc-scripts/user_settings.mel";
+source "pvc_scripts/hotkeys.mel";
+source "pvc_scripts/shelves.mel";
+source "pvc_scripts/user_settings.mel";
 create_hotkeys;
 println("  Finished");
 println("---------------------------------------");
