@@ -3,8 +3,8 @@ from maya.cmds import listRelatives, ls, getAttr, setAttr, objExists,group,paren
 
 def zeroOut(objs):
 	zero_outs = list()
-	for o in objs:	
-		if(isTransformNode(o)):		
+	for o in objs:
+		if(isTransformNode(o)):
 			group_name = "grp_" + o
 			obj_parent = listRelatives(o, p=True)
 			if objExists(group_name):
@@ -22,7 +22,7 @@ def zeroOut(objs):
 def isTransformNode(obj):
 	"""
 	Checks if the obj is a transform node
-	"""	
+	"""
 	return (nodeType(obj) == "transform")
 
 def setReceiverWithSender(sender, receiver):
@@ -36,8 +36,7 @@ def setReceiverWithSender(sender, receiver):
 
 def setAttrToValue(obj, attr, value=0):
 	"""
-	Sets a complex attr, like translation or rotation, to a value.	
+	Sets a complex attr, like translation or rotation, to a value.
 	Value's default is 0
 	"""
 	setAttr(obj+"."+attr, 0, 0, 0, type="double3")
-

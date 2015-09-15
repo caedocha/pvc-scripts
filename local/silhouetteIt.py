@@ -18,7 +18,6 @@ def createSurfaceShader(shader_name, shader_group_name):
 	cmds.setAttr(shader+".outColor",0,0,0, type="double3" )
 	cmds.sets(renderable=True, noSurfaceShader=True, empty=True, name=shader_group_name)
 	cmds.connectAttr(shader+".outColor", shader_group_name+".surfaceShader")
-	
 
 def connectSGToObj(shader_group,obj):
 	cmds.sets(obj, edit=True, forceElement=shader_group)

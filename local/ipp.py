@@ -42,4 +42,3 @@ def itemPerPointUI():
 	cmds.separator(p=ipp_column_lay)
 	ipp_cube_btn = cmds.iconTextButton(image="polyCube.png",style="iconAndTextHorizontal",label="Polycube",p=ipp_column_lay,c="create_item_per_point('cube')",bgc=(0.2,0.2,0.2),w=100,h=50, font="boldLabelFont")
 	cmds.showWindow(ipp_window)
-

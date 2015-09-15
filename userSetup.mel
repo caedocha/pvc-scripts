@@ -2,8 +2,8 @@
   Print string with break line.
 */
 global proc println(string $string){
-  print $string; 
-  print "\n";	
+  print $string;
+  print "\n";
 }
 
 /*
@@ -12,10 +12,10 @@ global proc println(string $string){
 global proc source_all_files_in_dir(string $dir) {
   string $path = `internalVar -userScriptDir` + $dir;
   string $scripts[] = `getFileList -folder $path -filespec "*.mel"`;
-  if(size($scripts) > 0){
-    for($script in $scripts){
+  if(size($scripts) > 0) {
+    for($script in $scripts) {
       string $file = $path + $script;
-	  variable_source $file;
+      variable_source $file;
     }
   }
 }
@@ -23,30 +23,30 @@ global proc source_all_files_in_dir(string $dir) {
 /*
   Allows source scripts using variables
 */
-global proc variable_source (string $script) {  
-	string $command = "source \""+$script+"\"";  
-    eval $command ;  			  
-} 
+global proc variable_source (string $script) {
+    string $command = "source \""+$script+"\"";
+    eval $command ;
+}
 
 
-println("  Importing user start-up related scripts");
-source "hotkeys.mel";
-source "shelves.mel";
-source "user_settings.mel";
+println(" -- Importing user start-up related scripts");
+println(" -- Note: Relative script path to ./pvc-scripts!");
+
+source "pvc-scripts/hotkeys.mel";
+source "pvc-scripts/shelves.mel";
+source "pvc-scripts/user_settings.mel";
 create_hotkeys;
 println("  Finished");
 println("---------------------------------------");
 
-println("  Importing author's scripts");
+println(" -- Importing author's scripts");
 source_all_files_in_dir("local/");
 source_all_files_in_dir("utils/");
 println("  Finished.");
 println("-----------------------------------------");
 
-println("  Importing 3rd party scripts");
+println(" -- Importing 3rd party scripts");
 source_all_files_in_dir("3rd_party/comet_scripts/");
 source_all_files_in_dir("3rd_party/singles/");
 println("  Finished.");
 println("-----------------------------------------");
-
-

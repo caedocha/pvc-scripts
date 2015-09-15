@@ -8,8 +8,8 @@ DESCRIPTION:
 Resets the selected controllers to their default value.
 
 USAGE:
-*Select the controllers to be reset.
-*Run the script.
+* Select the controllers to be reset.
+* Run the script.
 
 AUTHOR:
 Carlos Chacon L. (caedo.00 at gmail dot com)
@@ -20,9 +20,9 @@ import maya.cmds as cmds
 
 def isSingleAttribute(attr, obj):
 	"""
-    	Checks if the attr is single or multiple value.
-    	"""
-    	return True if (cmds.attributeQuery(attr, node=obj, nc=True) is None) else False
+	Checks if the attr is single or multiple value.
+	"""
+	return True if (cmds.attributeQuery(attr, node=obj, nc=True) is None) else False
 
 def resetController(controller):
 	"""
@@ -46,4 +46,3 @@ def resetControllers(controllers):
 		print "No Controllers selected"
 
 resetControllers(cmds.ls(sl=True))
-

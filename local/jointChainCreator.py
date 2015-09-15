@@ -29,7 +29,6 @@ def createLimbChains(locators, chains):
 		joints = createJointsFromLocators(locators)
 		for i,j in enumerate(joints):
 			rename(j, chain[i])
-			 
 
 locators = ls(sl=True)
 #locators = ["loc1", "loc2", "loc3"]

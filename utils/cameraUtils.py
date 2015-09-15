@@ -31,8 +31,7 @@ def switch_persp_panel():
 
 def cycle_panel_focus():
 	"""
-	TODO:Aun no se como poner en frente un panel
+	TODO: I still need to find a way to set a frontal camera.
 	"""
 	current_panel = cmds.getPanel(wf=True)
 	visible_panels = cmds.getPanel(vis=True)
-

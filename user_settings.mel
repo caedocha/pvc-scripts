@@ -1,12 +1,18 @@
+/*
+  General Settings
+*/
 jointDisplayScale 0.1;
 ikHandleDisplayScale 0.3;
 autoKeyframe -state on;
 //prefWndAnimOptionChanged 1; // Playback at 24fps.
 playbackOptions -v "all"; //Playback in all viewports.
 undoInfo -infinity on; //Infinity undos.
+
 /*
-  Set Background color to light grey:.
+  GUI Settings
 */
+
+// Set Background color to light grey
 displayRGBColor background 0.6 0.6 0.6;
 displayPref -displayGradient 0;
 
@@ -14,8 +20,8 @@ displayPref -displayGradient 0;
   Set default renderer to MentalRay if exists.
 */
 string $renderers[] = `renderer -query -namesOfAvailableRenderers`;
-for ($i = 0; $i < size($renderers); $i++) {   
-	if($renderers[$i] == "mentalRay") {
-       optionVar -stringValue "preferredRenderer" "mentalRay";
-	 }
+for ($i = 0; $i < size($renderers); $i++) {
+  if($renderers[$i] == "mentalRay") {
+    optionVar -stringValue "preferredRenderer" "mentalRay";
+  }
 }

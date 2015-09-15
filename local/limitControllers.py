@@ -8,8 +8,8 @@ DESCRIPTION:
 Limit the translation of objs, useful to build UI controllers.
 
 USAGE:
-*Select objs to limit
-*Run the script
+* Select objs to limit
+* Run the script
 
 AUTHOR:
 Carlos Chacon L. (caedo.00 at gmail dot com)
